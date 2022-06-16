@@ -5,5 +5,3 @@
 @yield('sidebar')
 @yield('content')
 @yield('footer')
-
-

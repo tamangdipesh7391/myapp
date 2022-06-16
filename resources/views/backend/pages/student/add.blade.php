@@ -1,6 +1,6 @@
-@extends('main')
+
+@extends('backend/main')
 @section('content')
-    <div class="row">
         <div class="col-md-12">
             <h1 class="mt-2"><i class="fa fa-user"></i> Add Student</h1>
           
@@ -17,7 +17,7 @@
             @endif
         </div>
         <div class="col-md-12">
-            <form action="{{route('student.store')}}" method="post">
+            <form action="" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-4">
@@ -30,10 +30,8 @@
                                 {{ $message }}
                             @enderror
                         </a>
-                     </div> 
-
-
-                    </div>
+                     </div>
+                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Middle Name</label>
@@ -125,7 +123,8 @@
                                 
                                 @if (old('country') == 'china' )
                                 {{"selected"}}
-                            @endif
+                            
+                                @endif
                                 >China</option>
                                 <option value="india"
                                 @if (old('country') == 'india' )
@@ -187,5 +186,4 @@
             </form>
         </div>
 
-    </div>
 @endsection

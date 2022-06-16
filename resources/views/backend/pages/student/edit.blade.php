@@ -1,9 +1,8 @@
-@extends('main')
+
+@extends('backend/main')
 @section('content')
-    <div class="row">
         <div class="col-md-12">
             <h1 class="mt-2"><i class="fa fa-user"></i> Edit Student</h1>
-          
             @if(Session::has('success'))
             <div class="alert alert-success">
                 {{Session::get('success')}}
@@ -17,35 +16,32 @@
             @endif
         </div>
         <div class="col-md-12">
-            <form action="{{route('student.update',$studentData->id)}}" method="post">
+            <form action="" method="post">
                 @csrf
-                @method('PUT')
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="fname">First Name </label>
-                            <input id="fname" type="text" class="form-control" name="fname" value="{{$studentData->fname}}">
+                            <input id="fname" type="text" class="form-control" name="fname" value="{{$editData->fname}}">
                        
                         <a style="color:red;">
                             @error('fname')
                                 {{ $message }}
                             @enderror
                         </a>
-                     </div> 
-
-
-                    </div>
+                     </div>
+                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Middle Name</label>
-                            <input type="text" class="form-control" name="mname" {{$studentData->mname}}>
+                            <input type="text" class="form-control" name="mname" value="{{$editData->mname}}">
                         </div>
 
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Last Name</label>
-                            <input type="text" class="form-control" name="lname" value="{{$studentData->lname}}">
+                            <input type="text" class="form-control" name="lname" value="{{$editData->lname}}">
                             <a style="color:red;">
                                 @error('lname')
                                     {{ $message }}
@@ -62,7 +58,7 @@
                             <div class="col-md-4">
                                 <label for="male">
                                     <input type="radio" id="male" name="gender" value="male" 
-                                    @if ($studentData->gender == 'male' )
+                                    @if ($editData->gender == 'male' )
                                         {{"checked"}}
                                     @endif
                                    
@@ -73,7 +69,7 @@
                             <div class="col-md-4">
                                 <label for="female">
                                     <input type="radio" 
-                                    @if ($studentData->gender  == 'female' )
+                                    @if ($editData->gender == 'female' )
                                     {{"checked"}}
                                 @endif
                                     id="female" name="gender" value="female">Female
@@ -82,7 +78,7 @@
                             <div class="col-md-4">
                                 <label for="others">
                                     <input type="radio" 
-                                    @if ($studentData->gender  == 'others' )
+                                    @if ($editData->gender == 'others' )
                                     {{"checked"}}
                                 @endif
                                  id="others" name="gender" value="others">Others
@@ -100,7 +96,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label for="">City</label>
-                            <input type="text" class="form-control" name="city" value="{{$studentData->city}}">
+                            <input type="text" class="form-control" name="city" value="{{$editData->city}}">
                             <a style="color:red;">
                                 @error('city')
                                     {{ $message }}
@@ -118,31 +114,32 @@
                                 <option selected disabled>Choose Country</option>
                                 <option 
                                 
-                                @if ($studentData->country == 'nepal' )
+                                @if ($editData->country == 'nepal' )
                                     {{"selected"}}
                                 @endif
                                 value="nepal">Nepal</option>
                                 <option value="china"
                                 
-                                @if ($studentData->country == 'china' )
+                                @if ($editData->country == 'china' )
                                 {{"selected"}}
-                            @endif
+                            
+                                @endif
                                 >China</option>
                                 <option value="india"
-                                @if ($studentData->country == 'india' )
+                                @if ($editData->country == 'india' )
                                 {{"selected"}}
                             @endif
                                 >India</option>
                                 <option 
-                                @if ($studentData->country == 'usa' )
+                                @if ($editData->country == 'usa' )
                                     {{"selected"}}
                                 @endif
-                                 @if ($studentData->country == 'usa' )
+                                 @if ($editData->country == 'usa' )
                                     {{"selected"}}
                                 @endif value="usa" 
                                 >USA</option>
                                 <option 
-                                @if ($studentData->country == 'uk' )
+                                @if ($editData->country == 'uk' )
                                 {{"selected"}}
                             @endif
                                 value="uk">UK</option>
@@ -162,7 +159,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Phone</label>
-                            <input type="text" class="form-control" name="phone" value="{{$studentData->phone}}">
+                            <input type="text" class="form-control" name="phone" value="{{$editData->phone}}">
                             <a style="color:red;">
                                 @error('phone')
                                     {{ $message }}
@@ -173,7 +170,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Email</label>
-                            <input type="email" class="form-control" name="email" value="{{$studentData->email}}">
+                            <input type="email" class="form-control" name="email" value="{{$editData->email}}">
                             <a style="color:red;">
                                 @error('email')
                                     {{ $message }}
@@ -188,5 +185,4 @@
             </form>
         </div>
 
-    </div>
 @endsection

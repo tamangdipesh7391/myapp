@@ -1,115 +1,36 @@
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Medicio Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="http://127.0.0.1:8000/frontend/assets/img/favicon.png" rel="icon">
-  <link href="http://127.0.0.1:8000/frontend/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="http://127.0.0.1:8000/frontend/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="http://127.0.0.1:8000/frontend/assets/css/style.css" rel="stylesheet">
-
- 
-</head>
-
-<body>
-
-
-<style>
-  .login-box{
-    margin-top: 70px;
-  }
-</style>
-
-
-  <main id="main">
-    <div class="container login-box">
-        <div class="row">
-            <div class="col-md-5  m-auto">
-                <div class="card border-primary mt-3">
-                    <div class="card-header text-primary text-center"><h5 class="card-title"><a href="{{url('/')}}">Digital_Sikshya</a></h5></div>
-                    <div class="card-body text-primary">
-                        @if (Session('success'))
-                        <div class="alert alert-success">
-                             {{Session('success')}}
-                        </div>
-                   
-                   @endif
-                   @if (Session('error'))
-                   <div class="alert alert-danger">
-                        {{Session('error')}}
-                   </div>
-              
-              @endif
-    
-                      <h5 class="card-title text-center"><i class="fa fa-lock"></i> Login Here</h5><hr>
-                        <form action="" method="POST">
-                            @csrf
-                            <input type="text" name="username" value="{{old('username')}}" class="form-control" placeholder="Enter username">
-                            <a style="color:red">
-                                @error('username')
-                                    {{$message}}
-                                @enderror
-                            </a>
-                           
-                            <input type="password" name="password"  value="{{old('password')}}" class="form-control mt-3" placeholder="Enter password ">
-                            <a style="color:red">
-                                @error('password')
-                                    {{$message}}
-                                @enderror
-                            </a>
-
-                            
-                            <div class="col-md-12 col-lg-6">
-                            <button type="submit" class="btn btn-primary mt-3 text-white">Login</button>
-
-                            </div>
-                            <hr>
-                            <div class="col-md-12 mt-3 text-center ">
-                              <p class="forgot" align="center"><a href="#">Forgot Password?</p>
-                                <p>Haven't account yet? <a  href="{{route('register')}}"> Register Now.</p>                            </div>
-                        </form>
-                    </div>
-                  </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        @if(Session::has('success'))
+            <div class="alert alert-success">
+                {{Session::get('success')}}
             </div>
+            @endif
+
+            @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{Session::get('error')}}
+                </div>
+            @endif
+        </div>
+        <div class="col-md-5">  <h1>Login Form</h1>
+            <form action="" class="form-group" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                <label for="">Password</label>
+                    <input type="password" name="password" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Login</button>
+                </div>
+            </form>
+            <a href="{{route('register')}}">Register</a>
+
         </div>
     </div>
-   
-    </main><!-- End #main -->
-
-
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/purecounter/purecounter.js"></script>
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/aos/aos.js"></script>
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="http://127.0.0.1:8000/frontend/assets/vendor/php-email-form/validate.js"></script>
-
-<!-- Template Main JS File -->
-<script src="http://127.0.0.1:8000/frontend/assets/js/main.js"></script>
-
-</body>
-
-</html>
+</div>

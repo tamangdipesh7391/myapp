@@ -1,9 +1,9 @@
-@section('sidebar')
-     <!-- Main Sidebar Container -->
+ @section('sidebar')
+ <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('')}}" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="index3.html" class="brand-link">
+      <img src="{{url('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
@@ -12,10 +12,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{url('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Laralel user</a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -36,50 +36,77 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('student.create')}}" class="nav-link ">
+                <a href="{{url('admin/add-student')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Student</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('student.index')}}" class="nav-link">
+                <a href="{{url('admin/display-student')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Diplay Student </p>
+                  <p>Display Student</p>
                 </a>
               </li>
-            
+             
+            </ul>
+          </li>
+
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                course
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{url('admin/add-course')}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add course</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin/display-course')}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Display course</p>
+                </a>
+              </li>
+             
+             
             </ul>
           </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Course
+                student course
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('add-course')}}" class="nav-link ">
+                <a href="{{url('admin/add-student-course')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Course</p>
+                  <p>Add student course</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('display-course')}}" class="nav-link">
+                <a href="{{url('admin/display-student-course')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Diplay Course </p>
+                  <p>Display student course</p>
                 </a>
               </li>
-            
+             
+             
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item bg-danger">
+            <a href="{{url('admin/logout')}}" class="nav-link">
+              <i class="nav-icon fas fa-power-off"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Logout
+               
               </p>
             </a>
           </li>
@@ -88,9 +115,8 @@
       </nav>
       <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
+    /.sidebar
   </aside>
   <div class="content-wrapper">
     <div class="container">
-
-@endsection
+  @endsection
